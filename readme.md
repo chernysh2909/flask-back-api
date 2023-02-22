@@ -7,3 +7,7 @@
 | 3   | localhost:5000/api/users/add              | POST        | create a new user record                     |
 | 4   | localhost:5000/api/users/update           | PUT         | update a user record                         |
 | 5   | localhost:5000/api/users/delete/<user_id> | DELETE      | delete user record                           |
+
+before start create table
+```create_db_table```
+
