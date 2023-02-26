@@ -11,3 +11,13 @@
 before start create table
 ```create_db_table```
 
+create image docker
+
+```docker build -t flask-back-api:v1.0.0 .```
+
+```docker run -d -p 8080:5000 flask-back-api:v1.0.0```
+
+docker-compose
+
+```docker-compose build```
+```docker-compose up```

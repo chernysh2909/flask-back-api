@@ -2,6 +2,7 @@ import sqlite3
 from flask import Flask, request, jsonify  # added to top of file
 from flask_cors import CORS  # added to top of file
 
+
 # user = {
 #     "name": "John Doe",
 #     "email": "jondoe@gamil.com",
@@ -38,7 +39,9 @@ def create_db_table():
     finally:
         conn.close()
 
-# create_db_table()
+
+create_db_table()
+
 
 def insert_user(user):
     inserted_user = {}
@@ -56,6 +59,7 @@ def insert_user(user):
         conn.close()
 
     return inserted_user
+
 
 def get_users():
     users = []
@@ -140,6 +144,11 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 
+@app.route("/")
+def index():
+    return "<p>Hello, World!</p>"
+
+
 @app.route('/api/users', methods=['GET'])
 def api_get_users():
     return jsonify(get_users())
@@ -169,5 +178,5 @@ def api_delete_user(user_id):
 
 if __name__ == "__main__":
     # app.debug = True
-    app.run(debug=True)
-    # app.run()  # run app
+    # app.run(debug=True)
+    app.run(host="0.0.0.0")  # run app
